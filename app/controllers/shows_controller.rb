@@ -66,8 +66,10 @@ class ShowsController < ApplicationController
 
   # GET /shows/search.json
   def search
-    q = 'title LIKE ?'
-    @shows = Show.where(user_id: current_user&.id).where(q, "%#{params[:query]}%")
+    q = 'shows.title LIKE ? OR channels.title LIKE ?'
+    @shows =
+      Show.joins(:channel).where(user_id: current_user&.id)
+          .where(q, "%#{params[:query]}%", "%#{params[:query]}%")
   end
 
   # PATCH /save_favourite/1.json
