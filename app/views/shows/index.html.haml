@@ -56,14 +56,13 @@
       dataType: 'json',
       success: function(data, status) {
         $('tbody').empty();
-        // TODO: Need to display channel name
         data.forEach(datum => {
           $('tbody').append(
             `
               <tr>
                 <td>${datum.title}</td>
                 <td>${datum.timings}</td>
-                <td>${datum.channel_id}</td>
+                <td>${datum.channel_title}</td>
                 <td><a href="/shows/${datum.id}">Show</a></td>
                 <td><a href="/shows/${datum.id}/edit">Edit</a></td>
                 <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/shows/${datum.id}">Destroy</a></td>
