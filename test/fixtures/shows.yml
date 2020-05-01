@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  timings: 2020-05-01 11:02:02
+  favourite: false
+  channel: one
+
+two:
+  title: MyString
+  timings: 2020-05-01 11:02:02
+  favourite: false
+  channel: two

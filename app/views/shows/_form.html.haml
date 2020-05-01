@@ -1,0 +1,19 @@
+= form_for @show do |f|
+  - if @show.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@show.errors.count, "error")} prohibited this show from being saved:"
+      %ul
+        - @show.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :timings
+    = f.datetime_select :timings
+  .field
+    = f.label :channel_id
+    = f.select(:channel_id, options_from_collection_for_select(Channel.all, :id, :title), {}, required: true)
+  .actions
+    = f.submit 'Save'
